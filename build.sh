@@ -17,7 +17,7 @@ MYIMAGE=127.0.0.1:8082/springboot/springboot-jpa
 #docker images | grep 192.168.1.2:8082/springboot/springboot-jpa | awk '{print $3}' | xargs docker rmi
 
 # build jar and image
-mvn package -e -X docker:build -DskipTest
+mvn package && docker:build -DskipTest
 
 # running container
 docker run -dp 8080:8080 --name springboot-jpa ${MYIMAGE}
